@@ -1,74 +1,70 @@
-# 🧾 Invoice Extraction AI
+# Invoice Extraction AI
 
-Invoice Extraction AI is a demo application built with FastAPI and Streamlit that extracts structured data from PDF invoices. This no-auth version focuses on showcasing PDF text extraction and data parsing.
+This project extracts data from PDF invoice files using a Python backend and a Streamlit frontend.
 
-## Features
+## Requirements
 
-- PDF text extraction using `pdfplumber`
-- Demo data extraction showing key invoice fields and line items
-- Live Streamlit frontend for file upload and display
-- Easy local setup and deployment on Streamlit Community Cloud
+- Python 3.9 or newer
+- [uv](https://github.com/astral-sh/uv) package manager
+- Git
+
+## Setup Instructions
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/invoice-extraction-ai.git
+   cd invoice-extraction-ai
+   ```
+
+2. Create and activate virtual environment:
+   ```bash
+   uv venv
+   # On Windows
+   .venv\Scripts\activate
+   # On macOS/Linux
+   source .venv/bin/activate
+   ```
+
+3. Install all dependencies:
+   ```bash
+   uv sync
+   ```
+
+## Running the Application
+
+1. Start the FastAPI backend (runs on port 8000):
+   ```bash
+   uv run uvicorn backend.main:app --reload
+   ```
+
+2. In a new terminal, start the Streamlit frontend:
+   ```bash
+   uv run streamlit run frontend/streamlit_app.py
+   ```
+
+3. Open your browser to http://localhost:8501 to access the app.
+
+## Usage
+
+1. Upload a PDF invoice file using the file uploader
+2. Click "Extract Details" to process the invoice
+3. View the extracted information in a structured format
+
+## Notes
+
+- Ensure both backend and frontend are running simultaneously
+- The backend must be running before using the frontend interface
+- Supported file format: PDF only (max 200MB)
 
 ## Project Structure
 
-```plaintext
-Invoice_Extraction_AI/
+```
+invoice-extraction-ai/
 ├── backend/
-│   ├── app/
-│   │   ├── routers/
-│   │   │   └── invoices.py
-│   │   └── services/
-│   │       └── ai_service.py
 │   ├── main.py
-│   ├── requirements.txt
-│   └── .env.example
+│   └── requirements.txt
 ├── frontend/
 │   ├── streamlit_app.py
 │   └── requirements.txt
-├── packages.txt
-├── .gitignore
 └── README.md
 ```
-
-## Local Setup
-
-### 1. Clone the repo
-
-```bash
-git clone https://github.com/<your-username>/invoice-extraction-ai.git
-cd invoice-extraction-ai
-```
-
-### 2. Backend
-
-```bash
-cd backend
-python -m venv .venv
-.venv\Scripts\activate       # Windows
-# source .venv/bin/activate  # macOS/Linux
-pip install -r requirements.txt
-uvicorn main:app --reload --port 8000
-```
-
-### 3. Frontend
-
-```bash
-cd ../frontend
-# Activate same .venv from backend
-pip install -r requirements.txt
-streamlit run streamlit_app.py --server.port 8501
-```
-
-Open [http://localhost:8501](http://localhost:8501) to upload a PDF invoice and see demo extraction results.
-
-## Deployment on Streamlit Cloud
-
-1. Push to GitHub (main branch).
-2. In Streamlit Community Cloud, select your repo.
-3. Set **Main file** to `frontend/streamlit_app.py`.
-4. Add any required environment variables.
-5. Deploy and share the live URL.
-
-## License
-
-MIT License
