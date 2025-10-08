@@ -12,7 +12,7 @@ This project extracts data from PDF invoice files using a Python backend and a S
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/invoice-extraction-ai.git
+   git clone https://github.com/rishabhg8/invoice-extraction-ai.git
    cd invoice-extraction-ai
    ```
 
