@@ -34,12 +34,12 @@ This project extracts data from PDF invoice files using a Python backend and a S
 
 1. Start the FastAPI backend (runs on port 8000):
    ```bash
-   uv run uvicorn backend.main:app --reload
+   uv run uvicorn main:app --reload --host 127.0.0.1 --port 8000
    ```
 
-2. In a new terminal, start the Streamlit frontend:
+2. In a new terminal, start the Streamlit frontend (activate the backend venv first):
    ```bash
-   uv run streamlit run frontend/streamlit_app.py
+   uv run streamlit run streamlit_app.py --server.address 127.0.0.1 --server.port 8501
    ```
 
 3. Open your browser to http://localhost:8501 to access the app.
